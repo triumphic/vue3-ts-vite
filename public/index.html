@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" href="/favicon.ico" />
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, viewport-fit=cover" />
+  <title></title>
+  <script type="text/javascript">
+    if (location.search.indexOf('xingmu') !== -1) {
+      const scs =
+        '<link href="https://hobby-prod.oss-cn-hangzhou.aliyuncs.com/h5/bj-hobby-common/css/video-js-cdn.min7.18.1.css" rel="stylesheet">' +
+        '<script src="https://hobby-prod.oss-cn-hangzhou.aliyuncs.com/h5/bj-hobby-common/js/video.core.min7.18.1.js"><\/script>' +
+        '<link href="https://web.sdk.qcloud.com/player/tcplayer/release/v4.2.1/tcplayer.min.css" rel="stylesheet">' +
+        '<script src="https://web.sdk.qcloud.com/player/tcplayer/release/v4.2.1/libs/hls.min.0.13.2m.js"><\/script>' +
+        '<script src="https://web.sdk.qcloud.com/player/tcplayer/release/v4.2.1/tcplayer.v4.2.1.min.js"><\/script>'
+      document.write(scs)
+    }
+  </script>
+  <script type="text/javascript">
+    /**
+     * @param {Function} callback 回调函数
+     *
+    */
+    function setupWebViewJavascriptBridge(callback) {
+      if (window.WebViewJavascriptBridge) { return callback(WebViewJavascriptBridge) }
+      if (window.WVJBCallbacks) { return window.WVJBCallbacks.push(callback) }
+      window.WVJBCallbacks = [callback]
+      var WVJBIframe = document.createElement('iframe')
+      WVJBIframe.style.display = 'none'
+      WVJBIframe.src = 'xxyp://__bridge_loaded__'
+      document.documentElement.appendChild(WVJBIframe)
+      setTimeout(function () { document.documentElement.removeChild(WVJBIframe) }, 0)
+    }
+    setupWebViewJavascriptBridge(function () { })
+  </script>
+
+  <script>
+    var host = '<%- mode %>' === 'prod' ? 'https://front.basestonedata.com' : 'https://fronttest.basestonedata.com'
+    var XXH5CONFIG = {
+      app_key: '901',
+      app_name: 'hobby-h5',
+      app_version: "1.0.1",
+      // 是否开启无痕埋点
+      isTraceless: false,
+      vue_version: 3
+    };
+    (function () {var __xxH5 = document.createElement('script');var d = new Date();__xxH5.src =  host + "/index.js?t=" + d.getFullYear() + '' + (d.getMonth() + 1) + d.getDate();var s = document.getElementsByTagName("script")[0];s.parentNode.insertBefore(__xxH5, s);})();
+  </script>
+</head>
+
+<body>
+  <div id="app"></div>
+  <script type="module" src="/src/main.ts"></script>
+</body>
+
+</html>

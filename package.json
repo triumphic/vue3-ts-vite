@@ -1,0 +1,91 @@
+{
+  "name": "hobby-party",
+  "private": true,
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "vite --mode dev",
+    "beta": "vite --mode beta",
+    "uat": "vite --mode uat",
+    "prod": "vite --mode prod",
+    "build:dev": "vite build --mode dev",
+    "build:beta": "vite build --mode beta",
+    "build:uat": "vite build --mode uat",
+    "build:prod": "vite build --mode prod",
+    "preview": "vite preview",
+    "lint": "eslint src --fix --ext .ts,.tsx,.vue,.js,.jsx",
+    "format": "prettier --write ./**/*.{vue,ts,tsx,js,jsx,css,less,scss,json}",
+    "style": "stylelint --fix src/**/*.{vue,css,less,scss,sass}"
+  },
+  "dependencies": {
+    "axios": "^0.27.2",
+    "mta-h5-analysis": "^2.0.19",
+    "pinia": "^2.0.14",
+    "pinia-plugin-persist": "^1.0.0",
+    "qs": "^6.10.3",
+    "unplugin-vue-components": "^0.19.2",
+    "vant": "^3.5.0",
+    "vconsole": "^3.14.6",
+    "vite-plugin-vconsole": "^1.2.2",
+    "vue": "^3.2.37",
+    "vue-router": "^4.0.15",
+    "weixin-js-sdk": "^1.6.0"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "16.2.3",
+    "@commitlint/config-conventional": "16.2.1",
+    "@types/node": "17.0.21",
+    "@typescript-eslint/eslint-plugin": "5.23.0",
+    "@typescript-eslint/parser": "5.23.0",
+    "@vitejs/plugin-legacy": "1.7.1",
+    "@vitejs/plugin-vue": "2.2.0",
+    "@vitejs/plugin-vue-jsx": "^1.3.10",
+    "autoprefixer": "10.4.2",
+    "default-passive-events": "^2.0.0",
+    "eslint": "8.0.1",
+    "eslint-config-prettier": "8.5.0",
+    "eslint-plugin-prettier": "4.0.0",
+    "eslint-plugin-vue": "8.7.1",
+    "husky": "4.3.8",
+    "js-md5": "0.7.3",
+    "lint-staged": "12.3.6",
+    "postcss": "8.4.14",
+    "postcss-html": "1.4.1",
+    "postcss-px-to-viewport": "1.1.2",
+    "postcss-scss": "^4.0.4",
+    "prettier": "2.6.2",
+    "rollup-plugin-visualizer": "5.6.0",
+    "sass": "1.49.9",
+    "sass-loader": "12.6.0",
+    "stylelint": "^14.9.1",
+    "stylelint-config-prettier": "^9.0.3",
+    "stylelint-config-recommended-vue": "^1.4.0",
+    "stylelint-config-standard": "^26.0.0",
+    "stylelint-order": "^5.0.0",
+    "stylelint-prettier": "^2.0.0",
+    "typescript": "4.4.3",
+    "vite": "2.8.0",
+    "vite-plugin-chunk-split": "0.2.2",
+    "vite-plugin-compression": "0.5.1",
+    "vite-plugin-html": "3.2.0",
+    "vite-plugin-mkcert": "1.6.0",
+    "vite-plugin-style-import": "1.4.1",
+    "vue-eslint-parser": "7.11.0",
+    "vue-tsc": "0.29.8"
+  },
+  "husky": {
+    "hooks": {
+      "pre-push": "lint-staged",
+      "commit-msg": "commitlint -e $HUSKY_GIT_PARAMS"
+    }
+  },
+  "lint-staged": {
+    "*.{ts,jsx,tsx,js,vue}": [
+      "eslint --fix",
+      "git add"
+    ],
+    "*.{vue,css,scss,less}": [
+      "stylelint --fix",
+      "git add"
+    ]
+  }
+}
